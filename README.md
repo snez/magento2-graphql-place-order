@@ -14,3 +14,7 @@ You will need to have the Stripe Payments v2.6.0 magento module or newer. You ca
 1. Clone this repository locally
 2. Edit the .env file and set your Magento website domain name
 3. Run with `node index.js`
+
+Example output:
+
+![image](https://user-images.githubusercontent.com/249977/110517237-46602580-8113-11eb-850e-2175461817e3.png)
