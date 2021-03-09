@@ -1,0 +1,22 @@
+{
+  "name": "magento2-graphql-place-order",
+  "version": "1.0.0",
+  "description": "Place an order in Magento 2 using GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "magento2",
+    "graphql",
+    "stripe"
+  ],
+  "author": "Christos Constantinou",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
+    "sync-fetch": "^0.3.0"
+  }
+}
