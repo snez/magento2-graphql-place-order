@@ -1,4 +1,5 @@
 const fetch = require("sync-fetch");
+const util = require("util");
 
 module.exports = function(query, callback)
 {
@@ -11,7 +12,7 @@ module.exports = function(query, callback)
       body: JSON.stringify({query: query})
     }).json();
 
-    console.log('Response:', response, "\n");
+    console.log('Response:', util.inspect(response, false, null, true), "\n");
 
     return response.data;
 };
