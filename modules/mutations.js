@@ -186,8 +186,7 @@ var mutations = {
           payment_method: {
             code: "stripe_payments"
             stripe_payments: {
-              cc_save: false
-              cc_stripejs_token: "pm_card_visa:visa:4242"
+              cc_stripejs_token: "pm_card_visa"
             }
           }
       }) {
