@@ -82,7 +82,18 @@ mutation {
     input: {
       payment_method: "PAYMENT_METHOD_ID"
     }
-  )
+  ) {
+    id
+    created
+    type
+    fingerprint
+    label
+    icon
+    cvc
+    brand
+    exp_month
+    exp_year
+  }
 }
     </textarea>
     <p class="help-block">More test cards at <a href="https://stripe.com/docs/testing?testing-method=payment-methods#cards" target="_blank">https://stripe.com/docs/testing?testing-method=payment-methods#cards</a></p>
