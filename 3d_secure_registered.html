@@ -56,7 +56,7 @@ mutation {
 }
     </textarea>
     <button onclick="post('create_customer')" class="btn btn-primary">POST</button>
-    <div id="create_customer_response" class="alert alert-light"></div>
+    <pre id="create_customer_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 2: Generate a customer token</h2>
     <textarea class="form-control" id="generate_customer_token_data">
@@ -67,7 +67,7 @@ mutation {
 }
     </textarea>
     <button onclick="createCustomerToken()" class="btn btn-primary">POST</button>
-    <div id="generate_customer_token_response" class="alert alert-light"></div>
+    <pre id="generate_customer_token_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 3: Create customer cart</h2>
     <textarea class="form-control" id="create_customer_cart_data">
@@ -78,7 +78,7 @@ mutation {
 }
     </textarea>
     <button onclick="createCustomerCart()" class="btn btn-primary">POST</button>
-    <div id="create_customer_cart_response" class="alert alert-light"></div>
+    <pre id="create_customer_cart_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 4: Add product to cart</h2>
     <textarea class="form-control" id="add_product_data">
@@ -110,7 +110,7 @@ mutation {
 }
     </textarea>
     <button onclick="post('add_product')" class="btn btn-primary">POST</button>
-    <div id="add_product_response" class="alert alert-light"></div>
+    <pre id="add_product_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 5: Set shipping address</h2>
     <textarea class="form-control" id="set_shipping_data">
@@ -166,7 +166,7 @@ mutation {
 }
     </textarea>
     <button onclick="post('set_shipping')" class="btn btn-primary">POST</button>
-    <div id="set_shipping_response" class="alert alert-light"></div>
+    <pre id="set_shipping_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 6: Set billing address</h2>
     <textarea class="form-control" id="set_billing_data">
@@ -214,7 +214,7 @@ mutation {
 }
     </textarea>
     <button onclick="post('set_billing')" class="btn btn-primary">POST</button>
-    <div id="set_billing_response" class="alert alert-light"></div>
+    <pre id="set_billing_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 7: Set shipping method</h2>
     <textarea class="form-control" id="set_shipping_method_data">
@@ -242,7 +242,7 @@ mutation {
 }
     </textarea>
     <button onclick="post('set_shipping_method')" class="btn btn-primary">POST</button>
-    <div id="set_shipping_method_response" class="alert alert-light"></div>
+    <pre id="set_shipping_method_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Step 8: Set payment method</h2>
     <textarea class="form-control" id="set_payment_method_data">
@@ -266,7 +266,7 @@ mutation {
 }
     </textarea>
     <button onclick="post('set_payment_method')" class="btn btn-primary">POST</button>
-    <div id="set_payment_method_response" class="alert alert-light"></div>
+    <pre id="set_payment_method_response" class="alert alert-light"></pre>
 
     <h2 class="mt-4">Place order</h2>
     <textarea class="form-control" id="place_order_data">
@@ -279,7 +279,7 @@ mutation {
 }
     </textarea>
     <button onclick="placeOrder()" class="btn btn-primary">POST</button>
-    <div id="place_order_response" class="alert alert-light"></div>
+    <pre id="place_order_response" class="alert alert-light"></pre>
 
     <br>
     <br>
@@ -318,6 +318,7 @@ mutation {
             var data = JSON.stringify({
                 query: $("#" + step + "_data").val().replace("CART_ID", cartId).replace("SIMPLE_PRODUCT_SKU", sku)
             });
+            $( "#" + step + "_response" ).html("");
 
             $.ajax({
                 url: endpoint,
@@ -334,7 +335,7 @@ mutation {
                 },
                 success: function(response)
                 {
-                    $( "#" + step + "_response" ).html( JSON.stringify(response) );
+                    $( "#" + step + "_response" ).html( JSON.stringify(response, null, 2) );
                     if (typeof onSuccess != "undefined")
                     {
                         onSuccess(response);
